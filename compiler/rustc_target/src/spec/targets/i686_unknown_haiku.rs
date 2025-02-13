@@ -1,4 +1,4 @@
-use crate::spec::{Cc, LinkerFlavor, Lld, StackProbeType, Target, base};
+use crate::spec::{Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, base};
 
 pub(crate) fn target() -> Target {
     let mut base = base::haiku::opts();
@@ -9,7 +9,7 @@ pub(crate) fn target() -> Target {
 
     Target {
         llvm_target: "i686-unknown-haiku".into(),
-        metadata: crate::spec::TargetMetadata {
+        metadata: TargetMetadata {
             description: Some("32-bit Haiku".into()),
             tier: Some(3),
             host_tools: Some(true),
